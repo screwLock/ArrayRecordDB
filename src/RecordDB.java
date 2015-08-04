@@ -34,6 +34,9 @@ public class RecordDB  {
 		db[currentIndex] = newRecord;
 		currentIndex++;
 		dbSize++;
+		
+		//need to add sort method here after insertion
+		
 		return true;
 	}//end of insert()
 	
@@ -43,8 +46,13 @@ public class RecordDB  {
 			System.out.println("Delete cannot be performed");
 			return false;
 		}
+		
+		//use select method hear to find record to delete
+		
 		dbSize--;
-		//Arrays.sort();
+		
+		//need to add sort method
+		
 		return true;
 	}//end of delete()
 	
@@ -54,24 +62,30 @@ public class RecordDB  {
 			System.out.println("Delete cannot be performed");
 			return false;
 		}
+
+		//use select method hear to find record to delete
+		
 		dbSize--;
+		
+		//use sort method here
+		
 		return true;
 	}//end of delete()
 	
 	
-	
-	public Record search(String id){
+	//select() method
+	public Record select(String id){
 		Record currentRecord;
 		for(int n = 0; n<(dbSize-1);n++){
 			currentRecord = db[n];
-			if(id == currentRecord.id){
+			if(id.compareTo(currentRecord.id)==0){
 				return currentRecord;
 			}
 		}
 		//record could not be found
 		//this should be changed to a more useful value
 		return null;
-	}
+	}//end of select() method
 	
 	
 	private boolean isEmpty(){
