@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  */
 
-public class RecordDB implements Comparable<RecordDB> {
+public class RecordDB  {
 	
 	//properties
 	private int size=0;
@@ -25,6 +25,7 @@ public class RecordDB implements Comparable<RecordDB> {
 		this.db = new Record[size];
 	}
 	
+	//insert() method
 	public boolean insert(Record newRecord){
 		if(this.isFull()==false){
 			System.out.println("Insert cannot be performed");
@@ -34,7 +35,9 @@ public class RecordDB implements Comparable<RecordDB> {
 		currentIndex++;
 		dbSize++;
 		return true;
-	}
+	}//end of insert()
+	
+	//delete() method
 	public boolean delete(String id){
 		if(this.isEmpty()==false){
 			System.out.println("Delete cannot be performed");
@@ -43,8 +46,9 @@ public class RecordDB implements Comparable<RecordDB> {
 		dbSize--;
 		//Arrays.sort();
 		return true;
-	}
+	}//end of delete()
 	
+	//delete() method
 	public boolean delete(double pay){
 		if(this.isEmpty()==false){
 			System.out.println("Delete cannot be performed");
@@ -52,7 +56,7 @@ public class RecordDB implements Comparable<RecordDB> {
 		}
 		dbSize--;
 		return true;
-	}
+	}//end of delete()
 	
 	
 	
@@ -80,7 +84,7 @@ public class RecordDB implements Comparable<RecordDB> {
 		
 	}
 	
-	
+	//isFull() method
 	private boolean isFull(){
 		if(currentIndex>=size){
 			System.out.println("Database is full");
@@ -88,11 +92,7 @@ public class RecordDB implements Comparable<RecordDB> {
 		}
 		System.out.println("Database is not yet full");
 		return true;
-	}
+	}//end of isFull()
 
-	@Override
-	public int compareTo(RecordDB db) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-}
+
+}//class end
